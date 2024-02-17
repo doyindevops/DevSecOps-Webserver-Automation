@@ -16,7 +16,7 @@ pipeline {
             }
         }
 
-        stage ('Install Apache') {
+        /*stage ('Install Apache') {
             steps {
                 script {
                     // Install Apache 2 On Ubuntu Server
@@ -26,6 +26,6 @@ pipeline {
                     }
                 }
             }
-        }
+        }*/
     }
 }
