@@ -16,16 +16,16 @@ pipeline {
             }
         }
 
-        /*stage ('Install Apache') {
+        stage ('Install Apache') {
             steps {
                 script {
                     // Install Apache 2 On Ubuntu Server
                     def apache_install = 'sudo apt update && sudo apt install apache2 -y'
                     sshagent(['EC2-KEY']) {
-                        sh "ssh -o StrictHostKeyChecking=no ubuntu@3.253.113.45 ${apache_install}"
+                        sh "ssh -o StrictHostKeyChecking=no ubuntu@13.40.49.197 ${apache_install}"
                     }
                 }
             }
-        }*/
+        }
     }
 }
