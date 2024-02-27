@@ -7,35 +7,34 @@ pipeline {
     agent any
 
     stages {
-        stage ('fetch code') {
+        stage('fetch code') {
             steps {
                 script {
                     echo "Pull source code from Git"
-                    git branch: 'jenkins', url: 'https://github.com/doyindevops/jenkins_deploy_ec2.git'
+                    git branch: 'jenkins', 
+                        url: 'https://github.com/doyindevops/jenkins_deploy_ec2.git'
                 }
             }
         }
 
-        stage ('Install Apache') {
+        stage('Install Apache') {
             steps {
                 script {
                     // Install Apache 2 On Ubuntu Server
-                    def apache_install = 'sudo apt update && sudo apt install apache2 -y'
+                    def apache_install = 'sudo apt-get update && sudo apt-get install apache2 -y'
                     sshagent(['EC2-KEY']) {
-                        sh "ssh -o StrictHostKeyChecking=no ubuntu@35.176.20.206 ${apache_install}"
+                        sh "ssh -o StrictHostKeyChecking=no ubuntu@35.176.20.206 '${apache_install}'"
                     }
                 }
             }
         }
         
-        stage ('Copy Files to EC2') {
+        stage('Copy Files to EC2') {
             steps {
                 script {
                     echo "Copying files to EC2 instance"
-                    def git_clone = 'sudo git clone https://github.com/doyindevops/jenkins_deploy_ec2.git'
                     sshagent(['EC2-KEY']) {
-                        sh "sudo rm -rf /var/www/html/*"
-                        sh "sudo cp -r  /home/ubuntu/jenkins_deploy_ec2/2137_barista_cafe/* /var/www/html/"
+                        sh "ssh -o StrictHostKeyChecking=no ubuntu@35.176.20.206 'sudo rm -rf /var/www/html/* && sudo git clone https://github.com/doyindevops/jenkins_deploy_ec2.git /tmp/site && sudo cp -r /tmp/site/2137_barista_cafe/* /var/www/html/'"
                     }
                 }
             }
