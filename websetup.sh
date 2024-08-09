@@ -6,9 +6,10 @@ echo "Installing packages."
 echo "########################################"
 sudo apt update -y > /dev/null
 sudo apt install wget unzip apache2 -y > /dev/null
-echo
-
-# Creating Temp Directory
+echo wqa
+;]'\
+5+
+# Creating Temp Directory 
 echo "########################################"
 echo "Starting Artifact Deployment"
 echo "########################################"
