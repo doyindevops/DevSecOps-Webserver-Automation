@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     echo "Pull source code from Git"
-                    git branch: 'jenkins', url: 'https://github.com/doyindevops/jenkins_deploy_ec2'
+                    git branch: 'main', url: 'https://github.com/doyindevops/DevSecOps-Webserver-Automation.git'
                 }
             }
         }
@@ -17,8 +17,8 @@ pipeline {
                     echo "deploying to shell-script to ec2"
                     def shellCmd = "bash ./websetup.sh"
                     sshagent (['EC2-KEY']) {
-                        sh "scp -o StrictHostKeyChecking=no websetup.sh ubuntu@13.40.80.234:/home/ubuntu"
-                        sh "ssh -o StrictHostKeyChecking=no ubuntu@13.40.80.234 ${shellCmd}"
+                        sh "scp -o StrictHostKeyChecking=no websetup.sh ec2-user@13.36.237.46:/home/ec2-user"
+                        sh "ssh -o StrictHostKeyChecking=no ec2-user@13.36.237.46 ${shellCmd}"
                     }
                 }
             }
