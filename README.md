@@ -91,5 +91,3 @@ This project demonstrates proficiency in setting up a complete CI/CD pipeline wi
 This README is designed to **boost my profile** by showcasing my ability to integrate, automate, and monitor infrastructure efficiently, with a strong emphasis on security.
 
 ---
-
-This version includes markdown symbols and icons to add some flair while preserving the content's professional tone and details. Feel free to adjust any part of it to suit your preferences!
