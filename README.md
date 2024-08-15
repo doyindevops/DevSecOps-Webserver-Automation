@@ -1,7 +1,3 @@
-Sure! Below is your README with added markdown elements to enhance the visual design while maintaining the text's professionalism:
-
----
-
 ### 🌟 **DevSecOps Webserver Automation Project README** 🌟
 
 ---
